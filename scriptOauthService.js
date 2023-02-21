@@ -43,3 +43,13 @@ console.log(authorizationUrl)
   
 }
 
+function authCallback(request) {
+   const apiService = getOAuthService();
+   const isAuthorized = apiService.handleCallback(request);
+   if (isAuthorized) {
+      return HtmlService.createHtmlOutput('Have fun, Nerds.');
+   } else {
+      return HtmlService.createHtmlOutput('Denied. You may close this tab');
+  }
+}
+
