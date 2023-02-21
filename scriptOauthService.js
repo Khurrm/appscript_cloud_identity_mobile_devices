@@ -32,3 +32,14 @@ function getOAuthService(user) {
     .setParam('access_type', 'offline')
     .setParam('prompt', 'consent');
 }
+
+/**
+ * Logs the redirect URI to register.
+ */
+function logRedirectUri() {
+  const Authservice = getOAuthService();
+const authorizationUrl = Authservice.getAuthorizationUrl();
+console.log(authorizationUrl)
+  
+}
+
