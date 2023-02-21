@@ -53,3 +53,18 @@ function authCallback(request) {
   }
 }
 
+// + makeService.getAccessToken()
+function authorizeURL() {
+
+    baseURL =  "https://cloudidentity.googleapis.com/v1/devices/"
+   const makeService = getOAuthService();
+   const response = UrlFetchApp.fetch(baseURL,{
+      headers: {
+         Authorization: 'Bearer ' + + makeService.getAccessToken()
+         },
+         muteHttpExceptions: true 
+    });
+    console.log(response.getContentText)  
+
+}
+
